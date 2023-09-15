@@ -1,0 +1,44 @@
+body
+{
+    margin: 0;
+}
+nav
+{
+    position: absolute;
+    background-color: rgb(235, 235, 235);
+    height: 100%;
+}
+.container
+{
+    margin: 0 0 0 180px;
+    position: absolute;
+}
+
+ul
+{
+    width: 175px;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+li a
+{
+    margin: 0;
+    padding: 5px;
+    display: block;
+    background-color: rgb(168, 168, 168);
+}
+li a:hover
+{
+    background-color: rgb(136, 136, 136);
+}
+
+table, td
+{
+    border: 1px black solid;
+}
+label
+{
+    display: block;
+}

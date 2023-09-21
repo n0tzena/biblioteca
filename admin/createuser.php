@@ -26,7 +26,7 @@
             </div>
             <div>
                 <label for="cpf">CPF</label>
-                <input id="cpf" name="cpf" type="text" autocomplete="off" required>
+                <input id="cpf" name="cpf" type="text" class="ls-mask-cpf" placeholder="000.000.000-00" autocomplete="off" required>
             </div>
             <div>
                 <label for="telefone">Telefone</label>

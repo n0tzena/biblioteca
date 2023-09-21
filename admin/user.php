@@ -41,7 +41,6 @@
             </div>
             
             <div class="row">
-                <button onclick="location.href='./createuser.php';" class="btn light-blue accent-4">Relatório</button>
                 <button class="btn light-blue accent-4" type="submit" name="submit">Pesquisar</button>
             </div>
         </form>

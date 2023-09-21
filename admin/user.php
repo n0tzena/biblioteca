@@ -5,24 +5,11 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../materialize/css/materialize.min.css"  media="screen,projection"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+
     <title>Relatório</title>
 </head>
 <body>
-    <!--
-    <div class="row">
-        <div>
-            <nav>
-                <ul>
-                    <li><a href="./createuser.php">Criar Usuário</a></li>
-                    <li><a href="./user.php">Relatório de Usuários</a></li>
-                </ul>
-            </nav>
-        </div>  
-    </div>
-    -->
-    
-    
+    <?php include 'navbar.php' ?> 
     <div class="container">
         <h1>Relatório de Usuários</h1>
         <form method="post">
@@ -32,7 +19,7 @@
 
             <div class="input-field col s12">
                 <select id="consultaPor" name="consultaPor">
-                    <option value="" selected disable>Filtro da consulta</option>
+                    <option value="" selected disable>Filtro da Consulta</option>
                     <option value="id">ID</option>
                     <option value="nome">Nome</option>
                     <option value="cpf">CPF</option>
@@ -55,8 +42,6 @@
                         <td>Telefone</td>
                         <td>Endereço</td>
                         <td>Nível de Acesso</td>
-                        <td>Editar</td>
-                        <td>Excluir</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -69,7 +54,23 @@
                         {
                             // na duvida, ve a documentaçao pra classe e metodos estáticos no php
                             $rows = User::ReadUser($mysqli);
-                            EasyTable::DisplayTable($rows);
+                            foreach($rows as $row)
+                            {
+
+                                echo "<tr>";
+                                foreach($row as $columnIndex=>$entry)
+                                {
+                                    // se o array for a senha, passa pra proxima iteraçao
+                                    if($columnIndex == 6)
+                                    {
+                                        continue;
+                                    }
+                                    echo "<td>$entry</td>";
+                                }
+                                echo "<td><a href='./edituser.php?id=$row[0]'>Editar</a></td>";
+                                echo "<td><a href='./deleteuser.php?id=$row[0]'>Excluir</a></td>";
+                                echo "</tr>";
+                            }
                         }
                         else
                         {
@@ -96,7 +97,23 @@
                             
         
                             $rows = User::ReadUser($mysqli, $search, $equals);
-                            EasyTable::DisplayTable($rows);
+                            foreach($rows as $row)
+                            {
+
+                                echo "<tr>";
+                                foreach($row as $columnIndex=>$entry)
+                                {
+                                    // se o array for a senha, passa pra proxima iteraçao
+                                    if($columnIndex == 6)
+                                    {
+                                        continue;
+                                    }
+                                    echo "<td>$entry</td>";
+                                }
+                                echo "<td><a href='./edituser.php?id=$row[0]'>Editar</a></td>";
+                                echo "<td><a href='./deleteuser.php?id=$row[0]'>Excluir</a></td>";
+                                echo "</tr>";
+                            }
                         }
         
                     ?>  

@@ -7,11 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="./createuser.php">Criar Usuário</a></li>
-            <li><a href="./user.php">Relatório de Usuários</a></li>
-        </ul>
-    </nav>
+<?php include 'navbar.php' ?> 
 </body>
 </html>

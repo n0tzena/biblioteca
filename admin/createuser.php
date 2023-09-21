@@ -6,17 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criar Usuário</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!--
-    <nav>
-        <ul class="sidenavbar">
-            <li><a href="./createuser.php">Criar Usuário</a></li>
-            <li><a href="./user.php">Relatório de Usuários</a></li>
-        </ul>
-    </nav>
-    -->
+    <?php include 'navbar.php' ?> 
     <div class="container">
         <h1>Criar Usuário</h1>
         <form method="post">
@@ -38,11 +30,11 @@
             </div>
             <div class="row">
             <label for="nivelAcesso">Nível de Acesso</label>
+
             <select id="nivelAcesso" name="nivelAcesso">
                 <option value="0">Usuário</option>
                 <option value="1">Administrador</option>
             </select>
-            </div>
             <div class="row">   
                 <button onclick="location.href='./user.php';" class="btn light-blue accent-4">Relatório</button>
                 <button class="btn light-blue accent-4" type="submit" name="submit">Criar Usuário</button>
@@ -70,5 +62,10 @@
         ?>
     </div>
     <script type="text/javascript" src="../materialize/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var sel = document.querySelectorAll('select');
+            M.FormSelect.init(sel)});
+    </script>
 </body>
 </html>

@@ -19,7 +19,7 @@
 
             if($search != null)
             {
-                $query .= " WHERE {$search} LIKE CONCAT('%', ?, '%')";
+                $query .= " WHERE $search LIKE CONCAT('%', ?, '%')";
                 $stmt = $mysqliObject->prepare($query);
                 $stmt->bind_param("s", $equals);
                 $stmt->execute();

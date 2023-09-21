@@ -4,15 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Usuário</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../materialize/css/materialize.min.css"  media="screen,projection"/>
 </head>
 <body>
-<nav>
-    <ul>
-        <li><a href="./createuser.php">Criar Usuário</a></li>
-        <li><a href="./user.php">Relatório de Usuários</a></li>
-    </ul>
-</nav>
+    <?php include 'navbar.php' ?> 
     <div class="container">
         <h1>Editar Usuário</h1>
 
@@ -45,12 +41,12 @@
             <div>
             <label for="nivelAcesso">Nível de Acesso</label>
             <select id="nivelAcesso" name="nivelAcesso">
-                <option value="0">Usuário</option>
-                <option value="1">Administrador</option>
+                <option value="0" <?php if($rows[0][5] == 0) echo "selected" ?>>Usuário</option>
+                <option value="1" <?php if($rows[0][5] == 1) echo "selected" ?>>Administrador</option>
             </select>
             </div>
             <div>
-                <input name="submit" type="submit" value="Editar Usuário">
+            <button class="btn light-blue accent-4" type="submit" name="submit">Editar Usuário</button>
             </div>
         </form>
 
@@ -73,5 +69,11 @@
         ?>
 
     </div>
+    <script type="text/javascript" src="../materialize/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var sel = document.querySelectorAll('select');
+            M.FormSelect.init(sel)});
+    </script>
 </body>
 </html>

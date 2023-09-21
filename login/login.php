@@ -48,15 +48,15 @@
 
                                 if($row != null)
                                 {
-                                    session_start();
-                                    $_SESSION["id"] = $row[0];
-                                    $_SESSION["nome"] = $row[1];
-                                    $_SESSION["lvlacesso"] = $row[5];
-
                                     if($row[5] == 1)
                                     {
                                         echo "Redirecionando para a página de administração...";
-                                        header("Location: ../admin/user.php");                    
+                                        header("Location: ../admin/user.php");         
+                                        
+                                        session_start();
+                                        $_SESSION["id"] = $row[0];
+                                        $_SESSION["nome"] = $row[1];
+                                        $_SESSION["lvlacesso"] = $row[5];
                                     }
                                     if($row[5] == 0)
                                     {

@@ -2,11 +2,11 @@
     // classe usuario com metodos pra realizar CRUD de forma rapida e uniforme
     class User
     {
-        public static function CreateUser($mysqliObject, $nome, $cpf, $tel, $end, $lvlAcesso)
+        public static function CreateUser($mysqliObject, $nome, $cpf, $tel, $end, $lvlAcesso, $senha)
         {
-            $query = "INSERT INTO usuario VALUES (DEFAULT, ?, ?, ?, ?, ?)";
+            $query = "INSERT INTO usuario VALUES (DEFAULT, ?, ?, ?, ?, ?, ?)";
             $stmt = $mysqliObject->prepare($query);
-            $stmt->bind_param("ssssi", $nome, $cpf, $tel, $end, $lvlAcesso);
+            $stmt->bind_param("ssssis", $nome, $cpf, $tel, $end, $lvlAcesso, $senha);
             $stmt->execute();
 
             return true;

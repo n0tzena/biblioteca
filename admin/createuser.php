@@ -17,6 +17,10 @@
                 <input id="nome" name="nome" type="text" autocomplete="off" required>
             </div>
             <div>
+                <label for="senha">Senha</label>
+                <input id="senha" name="senha" type="text" autocomplete="off" required>
+            </div>
+            <div>
                 <label for="cpf">CPF</label>
                 <input id="cpf" name="cpf" type="text" class="ls-mask-cpf" placeholder="000.000.000-00" autocomplete="off" required>
             </div>
@@ -50,12 +54,13 @@
                 $cpf = $_POST['cpf'];
                 $tel = $_POST['telefone'];
                 $end = $_POST['endereco'];
+                $senha = $_POST['senha'];
 
                 if($_POST['nivelAcesso'] == 0)
                 $nivelAcesso = 0;
                 else $nivelAcesso = 1;
                 
-                if(User::CreateUser($mysqli, $nome, $cpf, $tel, $end, $nivelAcesso))
+                if(User::CreateUser($mysqli, $nome, $cpf, $tel, $end, $nivelAcesso, $senha))
                 echo "Usuário criado com sucesso!";
             }
 

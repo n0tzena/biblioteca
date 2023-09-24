@@ -11,7 +11,7 @@
     <?php include 'navbar.php' ?>
 
     <div class="container">
-        <h1>Empréstimo - Solicitação</h1>
+        <h1>Empréstimo</h1>
         <form method="post">
             <div>
                 <label for="nome_aluno">Nome do aluno</label>

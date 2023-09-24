@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="../sweetalert2/package/dist/sweetalert2.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../materialize/css/materialize.min.css"  media="screen,projection"/>
+    <script src="../sweetalert2/package/dist/sweetalert2.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criar Usuário</title>
@@ -18,15 +20,15 @@
             </div>
             <div>
                 <label for="senha">Senha</label>
-                <input id="senha" name="senha" type="text" autocomplete="off" required>
+                <input id="senha" name="senha" type="password" autocomplete="off" required>
             </div>
             <div>
                 <label for="cpf">CPF</label>
-                <input id="cpf" name="cpf" type="text" class="ls-mask-cpf" placeholder="000.000.000-00" autocomplete="off" required>
+                <input id="cpf" name="cpf" type="text" class="ls-mask-cpf" autocomplete="off" required onkeypress="mascarazinhaCpf()" maxlength="14">
             </div>
             <div>
                 <label for="telefone">Telefone</label>
-                <input id="telefone" name="telefone" type="text" autocomplete="off" required>
+                <input id="telefone" name="telefone" type="text" autocomplete="off" required required onkeypress="mascarazinhaTelefone()" maxlength="14">
             </div>
             <div>
                 <label for="endereco">Endereço</label>
@@ -39,9 +41,10 @@
                 <option value="0">Usuário</option>
                 <option value="1">Administrador</option>
             </select>
-            <div class="row">   
-                <button onclick="location.href='./user.php';" class="btn light-blue accent-4">Relatório</button>
-                <button class="btn light-blue accent-4" type="submit" name="submit">Criar Usuário</button>
+            <div class="row"> 
+                <div class="row">
+                    <button class="btn red lighten-1" type="submit" name="submit">Criar Usuário</button>
+                </div>  
             </div>
         </form>
         <?php
@@ -61,7 +64,13 @@
                 else $nivelAcesso = 1;
                 
                 if(User::CreateUser($mysqli, $nome, $cpf, $tel, $end, $nivelAcesso, $senha))
-                echo "Usuário criado com sucesso!";
+                echo '<script type="text/javascript">
+                Swal.fire(
+                    "Exito",
+                    "Usuário criado com sucesso!",
+                    "success"
+                );
+                </script>';
             }
 
         ?>
@@ -69,8 +78,9 @@
     <script type="text/javascript" src="../materialize/js/materialize.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var sel = document.querySelectorAll('select');
+            var sel = document.querySelectorAll('#nivelAcesso');
             M.FormSelect.init(sel)});
     </script>
+    <script type="text/javascript" src="../login/cpf-mask.js"></script>
 </body>
 </html>

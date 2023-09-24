@@ -28,7 +28,7 @@
             </div>
             
             <div class="row">
-                <button class="btn light-blue accent-4" type="submit" name="submit">Pesquisar</button>
+                <button class="btn red lighten-1" type="submit" name="submit">Pesquisar</button>
             </div>
         </form>
     

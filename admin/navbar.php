@@ -8,6 +8,7 @@ echo "
 <ul class='left'>
     <li><a href='./createuser.php'>Criar Usuário</a></li>
     <li><a href='./user.php'>Relatório de Usuários</a></li>
+    <li><a href='./form_emprestimo.php'>Formulário de Empréstimo</a></li>
 </ul>
 <ul class='right'>
     <li><a>Bem-vindo, $nome</a></li>

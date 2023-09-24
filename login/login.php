@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <link rel="stylesheet" href="../sweetalert2/package/dist/sweetalert2.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript" src="cpf-mask.js"></script>
+    <script src="../sweetalert2/package/dist/sweetalert2.min.js"></script>
     <link type="text/css" rel="stylesheet" href="../materialize/css/materialize.min.css"  media="screen,projection"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,8 +21,8 @@
                     <div class="row">
                         <form class="col s12" method="post">
                                 <div class="input-field col s12">
-                                    <input id="email" type="text" class="validate" name="cpf" required autocomplete="off">
-                                    <label for="email">CPF</label>
+                                    <input id="cpf" type="text" class="validate" name="cpf" required autocomplete="off" maxlength="14" onkeypress="mascarazinhaCpf()">
+                                    <label for="cpf">CPF</label>
                                 </div> 
                                 <div class="input-field col s12">
                                     <input id="password" type="password" class="validate" name="password" required autocomplete="off">
@@ -65,7 +68,13 @@
 
                                 }
                                 else {
-                                    echo "Dados inválidos.";
+                                    echo '<script type="text/javascript"> 
+                                    Swal.fire({
+                                        icon: "error",
+                                        title: "Erro",
+                                        text: "Credenciais incorretas. Por favor verifique-as e tente novamente!"
+                                    })
+                                    </script>';
                                 }
                             }
 
@@ -77,6 +86,7 @@
             </div>
         </div> 
     </div>
-    <script type="text/javascript" src="../materialize/js/materialize.min.js"></script>
+    <script type="text/javascript" src="../materialize/js/materialize.min.js"></script> 
+    <script type="text/javascript" src="cpf-mask.js"></script>
 </body>
 </html>

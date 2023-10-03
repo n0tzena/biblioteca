@@ -5,13 +5,13 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../materialize/css/materialize.min.css"  media="screen,projection"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário de Empréstimo</title>
+    <title>Formulário de empréstimo</title>
 </head>
 <body>
     <?php include 'navbar.php' ?>
 
     <div class="container">
-        <h1>Empréstimo</h1>
+        <h1>Formulário de empréstimo</h1>
         <form method="post">
             <div>
                 <label for="nome_aluno">Nome do aluno</label>
@@ -52,7 +52,7 @@
             <div class="row">
                 <div class="file-field input-field">
                     <div class="btn">
-                        <span>File</span>
+                        <span>Selecionar imagem</span>
                         <input type="file">
                     </div>
                     <div class="file-path-wrapper">

@@ -7,12 +7,12 @@
     <script src="../sweetalert2/package/dist/sweetalert2.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criar Usuário</title>
+    <title>Criar usuário</title>
 </head>
 <body>
     <?php include 'navbar.php' ?> 
     <div class="container">
-        <h1>Criar Usuário</h1>
+        <h1>Criar usuário</h1>
         <form method="post">
             <div>
                 <label for="nome">Nome do Usuário</label>
@@ -35,16 +35,16 @@
                 <input id="endereco" name="endereco" type="text" autocomplete="off" required>
             </div>
             <div class="row">
-            <label for="nivelAcesso">Nível de Acesso</label>
+                <label for="nivelAcesso">Nível de Acesso</label>
 
-            <select id="nivelAcesso" name="nivelAcesso">
-                <option value="0">Usuário</option>
-                <option value="1">Administrador</option>
-            </select>
-            <div class="row"> 
-                <div class="row">
-                    <button class="btn red lighten-1" type="submit" name="submit">Criar Usuário</button>
-                </div>  
+                <select id="nivelAcesso" name="nivelAcesso">
+                    <option value="0">Usuário</option>
+                    <option value="1">Administrador</option>
+                </select>
+                <div class="row"> 
+                    <div class="row">
+                        <button class="btn red lighten-1" type="submit" name="submit">Criar Usuário</button>
+                    </div>  
             </div>
         </form>
         <?php

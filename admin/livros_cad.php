@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../sweetalert2/package/dist/sweetalert2.min.css">
+    <script src="../sweetalert2/package/dist/sweetalert2.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../materialize/css/materialize.min.css"  media="screen,projection"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -95,7 +97,13 @@
             $saveURL = getcwd()."/imagemLivros/".basename($_FILES['imagem']['name']);
             if(move_uploaded_file($_FILES['imagem']['tmp_name'], $saveURL))
             {
-                echo "Cadastro realizado.";
+                echo '<script type="text/javascript">
+                Swal.fire(
+                    "Exito",
+                    "Livro cadastrado com sucesso!",
+                    "success"
+                );
+                </script>';
             }
             
 

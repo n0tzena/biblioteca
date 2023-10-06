@@ -40,21 +40,22 @@ CREATE TABLE IF NOT EXISTS `emprestimo` (
 -- Copiando estrutura para tabela sistema_gerencial_biblioteca.livros
 CREATE TABLE IF NOT EXISTS `livros` (
   `id_livro` int(11) NOT NULL AUTO_INCREMENT,
-  `status_livro` varchar(100) NOT NULL,
-  `categoria` varchar(100) NOT NULL,
   `titulo` varchar(100) NOT NULL,
-  `paginas` int(11) NOT NULL,
+  `status_livro` varchar(100) NOT NULL,
   `autor` varchar(255) NOT NULL,
+  `categoria` varchar(100) NOT NULL,
+  `paginas` int(11) NOT NULL,
   `estado_livro` varchar(255) NOT NULL,
-  `imagem` varchar(255) NOT NULL,
+  `imagem` varchar(1024) NOT NULL,
+  `comentarios` varchar(400) DEFAULT NULL,
   PRIMARY KEY (`id_livro`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Copiando dados para a tabela sistema_gerencial_biblioteca.livros: ~3 rows (aproximadamente)
-INSERT INTO `livros` (`id_livro`, `status_livro`, `categoria`, `titulo`, `paginas`, `autor`, `estado_livro`, `imagem`) VALUES
-	(1, 'Em estoque', 'Romance', 'Senhor dos Anais', 300, 'Irineu', 'Usado', ''),
-	(2, 'Indisponível', 'Aventura', 'Asssassi\'s Creed: Cruzada Secreta', 400, 'Oliver Bowden', 'Novo', ''),
-	(3, 'Disponível', 'Romance', 'Para todos os garotos que eu já amei', 1000, 'LC', 'Novo', '');
+-- Copiando dados para a tabela sistema_gerencial_biblioteca.livros: ~11 rows (aproximadamente)
+INSERT INTO `livros` (`id_livro`, `titulo`, `status_livro`, `autor`, `categoria`, `paginas`, `estado_livro`, `imagem`, `comentarios`) VALUES
+	(27, 'O Apanhador no Campo de Centeio', 'Disponível', 'J. D. Salinger', 'Romance', 234, 'Excelente', '/imagemLivros/91HFFmf2PQL._SL1500_.jpg', 'Capa dura.'),
+	(28, 'O Senhor dos Anéis: A Sociedade do Anel', 'Indisponível', 'J.R.R. Tolkien', 'Fantasia', 576, 'Excelente', '/imagemLivros/81hCVEC0ExL._SL1500_.jpg', 'Nenhuma observação.'),
+	(29, 'Assassinato no Expresso do Oriente', 'Disponível', 'Agatha Christie', 'Romance, Mistério', 200, 'Regular', '/imagemLivros/imagem_2023-10-06_004945841.png', 'Capa dura.');
 
 -- Copiando estrutura para tabela sistema_gerencial_biblioteca.usuario
 CREATE TABLE IF NOT EXISTS `usuario` (
@@ -70,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 
 -- Copiando dados para a tabela sistema_gerencial_biblioteca.usuario: ~3 rows (aproximadamente)
 INSERT INTO `usuario` (`id_usuario`, `nome_usuario`, `cpf`, `telefone`, `endereco`, `nivel_acesso`, `senha`) VALUES
-	(1, 'func1', '999.999.999-99', '(21)99999-9999', 'Rua teste Teste', 1, 'teste'),
+	(1, 'func2', '999.999.999-99', '(21)99999-9999', 'Rua teste Teste', 1, 'teste'),
 	(12, 'admin', '222.222.222-22', '(22)22222-2222', 'Rua X', 1, 'admin'),
 	(21, 'lucasvitorfc', '135.869.997-63', '(21)98089-0767', 'Rua X, Travessa Y', 1, 'senha');
 

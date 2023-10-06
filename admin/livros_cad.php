@@ -12,7 +12,7 @@
 
     <div class="container">
         <h1>Cadastro de livros</h1>
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <div>
                 <label for="titulo_livro">Título do livro</label>
                 <input id="titulo_livro" name="titulo_livro" type="text" autocomplete="off" required>
@@ -23,7 +23,7 @@
             </div>
             <div>
                 <label for="paginas">Número de páginas</label>
-                <input id="paginas" name="paginas" type="text" autocomplete="off" required>
+                <input id="paginas" name="paginas" type="number" autocomplete="off" required>
             </div>
             <div>
                 <label for="nome_autor">Autor do livro</label>
@@ -31,29 +31,29 @@
             </div>
             <div>
                 <label for="textarea1">Comentários</label>
-                <textarea id="textarea1" class="materialize-textarea" placeholder="Limite de 400 caracteres." maxlength="400"></textarea>
+                <textarea id="textarea1" name="comentarios" class="materialize-textarea" placeholder="Limite de 400 caracteres." maxlength="400"></textarea>
             </div>
             <div class="row">
                 <label for="estado_fisico">Estado físico do livro</label>
 
                 <select id="estado_fisico" name="estado_fisico">
-                    <option value="0">Excelente</option>
-                    <option value="1">Muito bom</option>
-                    <option value="2">Regular</option>
-                    <option value="3">Critico</option>
+                    <option value="Excelente">Excelente</option>
+                    <option value="Muito Bom">Muito bom</option>
+                    <option value="Regular">Regular</option>
+                    <option value="Crítico">Critico</option>
                 </select>
             </div>
             <div class="row">
                 <label>Disponiblidade</label>
                 <p>
                     <label>
-                        <input name="disponivel" type="radio" checked />
+                        <input name="disponivel" value="Disponível" type="radio" checked />
                         <span>Disponível para empréstimo</span>
                     </label>
                 </p>
                 <p>
                     <label>
-                        <input name="disponivel" type="radio"/>
+                        <input name="disponivel" value="Indisponível" type="radio"/>
                         <span>Indisponível para empréstimo</span>
                     </label>
                 </p>
@@ -62,7 +62,7 @@
                 <div class="file-field input-field">
                     <div class="btn">
                         <span>Selecionar imagem</span>
-                        <input type="file">
+                        <input type="file" name="imagem">
                     </div>
                     <div class="file-path-wrapper">
                         <label for="file-input">Foto do exemplar</label>
@@ -77,6 +77,36 @@
                 </div> 
             </div> 
         </form>
+    <?php
+        include "./connect.php";
+
+        if(isset($_POST["submit"]))
+        {
+            $titulo = $_POST['titulo_livro'];
+            $categoria = $_POST['categoria'];
+            $paginas = $_POST['paginas'];
+            $autor = $_POST['nome_autor'];
+            $comentarios = $_POST['comentarios'];
+            $disponibilidade = $_POST['disponivel'];
+            $estado = $_POST['estado_fisico'];
+
+            // https://www.php.net/manual/en/features.file-upload.post-method.php
+            $imagemURL = "/imagemLivros/".basename($_FILES['imagem']['name']);
+            $saveURL = getcwd()."/imagemLivros/".basename($_FILES['imagem']['name']);
+            if(move_uploaded_file($_FILES['imagem']['tmp_name'], $saveURL))
+            {
+                echo "Cadastro realizado.";
+            }
+            
+
+            $query = "INSERT INTO livros VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $stmt = $mysqli->prepare($query);
+            $stmt->bind_param("ssssisss", $titulo, $disponibilidade, $autor, $categoria, $paginas, $estado, $imagemURL, $comentarios);
+            $stmt->execute();
+
+        }
+
+    ?>
     </div>
 
 <script type="text/javascript" src="../materialize/js/materialize.min.js"></script>

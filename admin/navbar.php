@@ -7,8 +7,8 @@ echo "
 <nav class='nav'>
 <ul class='left'>
     <li><a href='./user.php'>Gerenciar Usuários</a></li>
-    <li><a href='./form_emprestimo.php'>Formulário de empréstimo</a></li>
     <li><a href='./livros.php'>Gerenciar Livros</a></li>
+    <li><a href='./aluno.php'>Gerenciar Alunos</a></li>
 </ul>
 <ul class='right'>
     <li><a>Bem-vindo, $nome</a></li>

@@ -14,10 +14,9 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
--- Copiando dados para a tabela sistema_gerencial_biblioteca.aluno: ~2 rows (aproximadamente)
+-- Copiando dados para a tabela sistema_gerencial_biblioteca.aluno: ~1 rows (aproximadamente)
 INSERT INTO `aluno` (`nome`, `cpf`, `telefone`, `endereço`) VALUES
-	('Teste', '111.111.111-11', '(11)11111-1111', 'Teste'),
-	('Victor Gomes Damasceno', '888.888.888-88', '(88)88888-8888', '888888888888');
+	('Teste', '111.111.111-11', '(11)11111-1111', 'Teste');
 
 -- Copiando dados para a tabela sistema_gerencial_biblioteca.emprestimo: ~1 rows (aproximadamente)
 INSERT INTO `emprestimo` (`id_emprestimo`, `id_cpf_aluno`, `id_livro`, `data_emprestimo`, `data_retorno`, `hora_emprestimo`, `hora_retorno`, `comentarios`) VALUES

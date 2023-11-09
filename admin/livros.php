@@ -13,6 +13,7 @@
     <h1>Gerenciamento de Livros</h1>
     <h3><a href="livros_cad.php">Cadastrar Livro</a></h3>
     <h3><a href="livros_read.php">Relatório de Livros</a></h3>
+    <h3><a href="emprestimo_read.php">Relatório de Empréstimos</a></h3>
 </div>
 </body>
 </html>

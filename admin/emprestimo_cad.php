@@ -68,32 +68,32 @@
                 </button>
             </div> 
         </form>
+        <?php
+
+            if(isset($_POST["submit"]))
+            {
+                $cpf = $_POST['cpf'];
+                $data_emprestimo = $_POST['data_emprestimo'];
+                $data_devolucao = $_POST['data_devolucao'];
+                $comentarios = $_POST['comentarios'];
+
+                $query = "INSERT INTO emprestimo VALUES (DEFAULT, ?, ?, ?, ?, '', '', ?)";
+                $stmt = $mysqli->prepare($query);
+                $stmt->bind_param("sisss", $cpf, $id, $data_emprestimo, $data_devolucao, $comentarios);
+
+                if($stmt->execute())
+                {
+                    echo "Empréstimo feito com sucesso.";
+                    $mysqli->query("UPDATE livros SET status_livro = 'Indísponível' WHERE id_livro = $id");
+                }
+                else
+                {
+                    echo "Este aluno não existe.";
+                }
+            }
+
+        ?>
     </div>
-
-    <?php
-
-        if(isset($_POST["submit"]))
-        {
-            $cpf = $_POST['cpf'];
-            $data_emprestimo = $_POST['data_emprestimo'];
-            $data_devolucao = $_POST['data_devolucao'];
-            $comentarios = $_POST['comentarios'];
-
-            $query = "INSERT INTO emprestimo VALUES (DEFAULT, ?, ?, ?, ?, '', '', ?)";
-            $stmt = $mysqli->prepare($query);
-            $stmt->bind_param("sisss", $cpf, $id, $data_emprestimo, $data_devolucao, $comentarios);
-
-            if($stmt->execute())
-            {
-                echo "Empréstimo feito com sucesso.";
-            }
-            else
-            {
-                echo "Este aluno não existe.";
-            }
-        }
-
-    ?>
 
 <script type="text/javascript" src="../materialize/js/materialize.min.js"></script>
 <script type="text/javascript" src="../login/cpf-mask.js"></script>

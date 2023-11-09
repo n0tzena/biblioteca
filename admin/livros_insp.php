@@ -32,8 +32,9 @@
         <div class="col s4">
             <img class="responsive-img" src=".<?php echo $rows[0][7] ?>">
             <div class="row">
-                <a class="waves-effect waves-light btn">Editar Livro</a>
+                <a class="waves-effect waves-light btn disabled">Editar Livro</a>
                 <a class="waves-effect waves-light btn" href="./emprestimo_cad.php?id=<?php echo $id ?>">Empréstimo</a>
+                <?php if($rows[0][2] != "Disponível") echo "<a class='waves-effect waves-light btn' href='./livros_devolver.php?id=$id'>Devolver Livro</a>" ?>
             </div>
             <div class="row">
                 <a class="red waves-effect waves-light btn-small" href="./livros_delete.php?id=<?php echo $id ?>">Excluir Livro</a>

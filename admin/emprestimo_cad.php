@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../materialize/css/materialize.min.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="../sweetalert2/package/dist/sweetalert2.min.css">
+    <script src="../sweetalert2/package/dist/sweetalert2.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de empréstimo</title>
 </head>
@@ -25,7 +27,7 @@
 
     <div class="container">
         <h1>Formulário de empréstimo</h1>
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
         <div>
                 <label for="cpf">CPF do Aluno</label>
                 <input id="cpf" name="cpf" type="text" class="ls-mask-cpf" autocomplete="off" required onkeypress="mascarazinhaCpf()" maxlength="14">
@@ -47,20 +49,28 @@
                 <input id="data_devolucao" name="data_devolucao" type="date" autocomplete="off" required>
             </div>
             <div>
+                <label for="hora_emprestimo">Hora do empréstimo</label>
+                <input id="hora_emprestimo" name="hora_emprestimo" type="time" autocomplete="off" required>
+            </div>
+            <div>
+                <label for="hora_devolucao">Hora da devolução</label>
+                <input id="hora_devolucao" name="hora_devolucao" type="time" autocomplete="off" required>
+            </div>
+            <div>
                 <label for="textarea1">Comentários</label>
                 <textarea id="textarea1" name="comentarios" class="materialize-textarea" placeholder="Limite de 400 caracteres." maxlength="400"></textarea>
             </div>
             <div class="row">
-                <!--div class="file-field input-field">
+                <div class="file-field input-field">
                     <div class="btn">
                         <span>Selecionar imagem</span>
-                        <input type="file">
+                        <input type="file" name="imagem">
                     </div>
                     <div class="file-path-wrapper">
                         <label for="file-input">Foto do exemplar</label>
                         <input class="file-path validate" name="file-input" id="file-input" type="text">
                     </div>
-                </div-->
+                </div>
             </div>
             <div class="row">
                 <button class="btn red lighten-1" type="submit" name="submit">Enviar
@@ -75,16 +85,36 @@
                 $cpf = $_POST['cpf'];
                 $data_emprestimo = $_POST['data_emprestimo'];
                 $data_devolucao = $_POST['data_devolucao'];
+                $hora_emprestimo = $_POST['hora_emprestimo'];
+                $hora_devolucao = $_POST['hora_devolucao'];
                 $comentarios = $_POST['comentarios'];
+                
+                $mysqli->query("UPDATE livros SET status_livro = 'Indisponível' WHERE id_livro = '$id'");
+                // adicionar imagem na linha do tempo
+                // https://www.php.net/manual/en/features.file-upload.post-method.php
+                $imagemURL = "/imagemLivros/".basename($_FILES['imagem']['name']);
+                $saveURL = getcwd()."/imagemLivros/".basename($_FILES['imagem']['name']);
 
-                $query = "INSERT INTO emprestimo VALUES (DEFAULT, ?, ?, ?, ?, '', '', ?)";
+                $query = "INSERT INTO imagem VALUES (DEFAULT, ?, ?, ?, ?)";
                 $stmt = $mysqli->prepare($query);
-                $stmt->bind_param("sisss", $cpf, $id, $data_emprestimo, $data_devolucao, $comentarios);
+                $stmt->bind_param("isss", $id, $imagemURL, $data_emprestimo, $hora_emprestimo);
+                $stmt->execute();
+
+                move_uploaded_file($_FILES['imagem']['tmp_name'], $saveURL);
+
+                $query = "INSERT INTO emprestimo VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?)";
+                $stmt = $mysqli->prepare($query);
+                $stmt->bind_param("sisssss", $cpf, $id, $data_emprestimo, $data_devolucao, $hora_emprestimo, $hora_devolucao, $comentarios);
 
                 if($stmt->execute())
                 {
-                    echo "Empréstimo feito com sucesso.";
-                    $mysqli->query("UPDATE livros SET status_livro = 'Indísponível' WHERE id_livro = $id");
+                    echo '<script type="text/javascript">
+                    Swal.fire(
+                        "Exito",
+                        "Livro emprestado com sucesso!",
+                        "success"
+                    );
+                    </script>';
                 }
                 else
                 {

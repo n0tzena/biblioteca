@@ -25,6 +25,12 @@
     $result = $stmt->get_result();
     
     $rows = $result->fetch_all(MYSQLI_NUM);
+    
+    // imagens
+    $query = "SELECT * FROM imagem WHERE id_livro = $id";
+    $stmt = $mysqli->prepare($query);
+    $stmt->execute(); $result = $stmt->get_result();
+    $imgrows = $result->fetch_all(MYSQLI_NUM);
 ?>
 <div class="container">
     <h1>Inspeção</h1>
@@ -33,8 +39,11 @@
             <img class="responsive-img" src=".<?php echo $rows[0][7] ?>">
             <div class="row">
                 <a class="waves-effect waves-light btn disabled">Editar Livro</a>
-                <a class="waves-effect waves-light btn" href="./emprestimo_cad.php?id=<?php echo $id ?>">Empréstimo</a>
+                <?php if($rows[0][2] == "Disponível") echo "<a class='waves-effect waves-light btn' href='./emprestimo_cad.php?id=$id>'>Empréstimo</a>"?>
                 <?php if($rows[0][2] != "Disponível") echo "<a class='waves-effect waves-light btn' href='./livros_devolver.php?id=$id'>Devolver Livro</a>" ?>
+            </div>
+            <div class="row">
+                <?php if(isset($imgrows[0][2])) echo "<a class='waves-effect waves-light btn' href='./livros_ciclo.php?id=$id'>Ciclo de Vida</a>" ?>
             </div>
             <div class="row">
                 <a class="red waves-effect waves-light btn-small" href="./livros_delete.php?id=<?php echo $id ?>">Excluir Livro</a>

@@ -67,16 +67,15 @@
                         <input type="file" name="imagem">
                     </div>
                     <div class="file-path-wrapper">
-                        <label for="file-input">Foto do exemplar</label>
+                        <label for="file-input">Capa do livro</label>
                         <input class="file-path validate" name="file-input" id="file-input" type="text">
                     </div>
                 </div>
-                
-                <div class="row">
+            </div> 
+            <div class="row">
                     <button class="btn red lighten-1" type="submit" name="submit">Enviar
                         <i class="material-icons right">send</i>
                     </button>
-                </div> 
             </div> 
         </form>
     <?php
@@ -112,6 +111,8 @@
             $stmt->bind_param("ssssisss", $titulo, $disponibilidade, $autor, $categoria, $paginas, $estado, $imagemURL, $comentarios);
             $stmt->execute();
 
+            // https://www.php.net/manual/pt_BR/mysqli.insert-id.php
+            //$id_livro = $mysqli->insert_id;
         }
 
     ?>

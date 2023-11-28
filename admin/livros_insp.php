@@ -25,12 +25,19 @@
     $result = $stmt->get_result();
     
     $rows = $result->fetch_all(MYSQLI_NUM);
+    $nomeLivro = $rows[0][1];
     
     // imagens
     $query = "SELECT * FROM imagem WHERE id_livro = $id";
     $stmt = $mysqli->prepare($query);
     $stmt->execute(); $result = $stmt->get_result();
     $imgrows = $result->fetch_all(MYSQLI_NUM);
+    
+    $query = "SELECT * FROM livros WHERE titulo = '$nomeLivro'";
+    $stmt = $mysqli->prepare($query);
+    $stmt->execute(); $result = $stmt->get_result();
+    $livros = $result->fetch_all(MYSQLI_NUM);
+    
 ?>
 <div class="container">
     <h1>Inspeção</h1>
@@ -52,6 +59,10 @@
         <div class="col s8">
             <div class="row">
                 <h4><?php echo $rows[0][1] ?></h4>
+            </div>
+            <div class="row">
+                <h5>Cópias do Livro</h5>
+                <blockquote><?php echo count($livros); ?></blockquote>
             </div>
             <div class="row">
                 <h5>Gênero</h5>

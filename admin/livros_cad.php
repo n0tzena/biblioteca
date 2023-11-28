@@ -45,6 +45,10 @@
                     <option value="Crítico">Critico</option>
                 </select>
             </div>
+            <div>
+                <label for="numLivros">Quantidade de livros para adicionar</label>
+                <input type="number" name="numLivros" id="numLivros" value="1" min="1" required>
+            </div>
             <div class="row">
                 <label>Disponiblidade</label>
                 <p>
@@ -90,6 +94,9 @@
             $comentarios = $_POST['comentarios'];
             $disponibilidade = $_POST['disponivel'];
             $estado = $_POST['estado_fisico'];
+            $numLivros = $_POST['numLivros'];
+
+            if($numLivros < 1) $numLivros = 1;
 
             // https://www.php.net/manual/en/features.file-upload.post-method.php
             $imagemURL = "/imagemLivros/".basename($_FILES['imagem']['name']);
@@ -105,11 +112,13 @@
                 </script>';
             }
             
-
-            $query = "INSERT INTO livros VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?)";
-            $stmt = $mysqli->prepare($query);
-            $stmt->bind_param("ssssisss", $titulo, $disponibilidade, $autor, $categoria, $paginas, $estado, $imagemURL, $comentarios);
-            $stmt->execute();
+            for($i = 1; $i <= $numLivros; $i++)
+            {
+                $query = "INSERT INTO livros VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?)";
+                $stmt = $mysqli->prepare($query);
+                $stmt->bind_param("ssssisss", $titulo, $disponibilidade, $autor, $categoria, $paginas, $estado, $imagemURL, $comentarios);
+                $stmt->execute();
+            }
 
             // https://www.php.net/manual/pt_BR/mysqli.insert-id.php
             //$id_livro = $mysqli->insert_id;

@@ -32,7 +32,12 @@
     $stmt = $mysqli->prepare($query);
     $stmt->execute(); $result = $stmt->get_result();
     $imgrows = $result->fetch_all(MYSQLI_NUM);
-    
+
+    $query = "SELECT * FROM emprestimo WHERE id_livro = $id";
+    $stmt = $mysqli->prepare($query);
+    $stmt->execute(); $result = $stmt->get_result();
+    $emprows = $result->fetch_all(MYSQLI_NUM);
+
     $query = "SELECT * FROM livros WHERE titulo = '$nomeLivro'";
     $stmt = $mysqli->prepare($query);
     $stmt->execute(); $result = $stmt->get_result();
@@ -83,6 +88,13 @@
             <div class="row">
                 <h5>Disponiblidade</h5>
                 <blockquote class="white-text <?php if($rows[0][2] == "Disponível") echo "green"; else echo "red";?>"><?php echo $rows[0][2] ?></blockquote>
+                <?php 
+                if(isset($emprows[0][4]))
+                {
+                    if(strtotime($emprows[0][4]) < time()) 
+                    echo "<blockquote class='yellow'>Atrasado</blockquote>"; 
+                }
+            ?>
             </div>
             <div class="row">
                 <h5>Observações</h5>

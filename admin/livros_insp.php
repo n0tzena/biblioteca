@@ -91,8 +91,10 @@
                 <?php 
                 if(isset($emprows[0][4]))
                 {
-                    if(strtotime($emprows[0][4]) < time()) 
-                    echo "<blockquote class='yellow'>Atrasado</blockquote>"; 
+                    if(strtotime(end($emprows)[4]) < time() && end($emprows)[8] != "Devolvido")
+                    {
+                        echo "<blockquote class='yellow'>Atrasado</blockquote>"; 
+                    } 
                 }
             ?>
             </div>

@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `aluno` (
   PRIMARY KEY (`cpf`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Copiando dados para a tabela sistema_gerencial_biblioteca.aluno: ~1 rows (aproximadamente)
+-- Copiando dados para a tabela sistema_gerencial_biblioteca.aluno: ~0 rows (aproximadamente)
 INSERT INTO `aluno` (`nome`, `cpf`, `telefone`, `endereço`) VALUES
 	('Teste', '111.111.111-11', '(11)11111-1111', 'Teste');
 
@@ -42,16 +42,22 @@ CREATE TABLE IF NOT EXISTS `emprestimo` (
   `hora_emprestimo` time DEFAULT NULL,
   `hora_retorno` time DEFAULT NULL,
   `comentarios` varchar(400) DEFAULT NULL,
+  `status_emprestimo` varchar(50) NOT NULL,
   PRIMARY KEY (`id_emprestimo`),
   KEY `FK_emprestimo_aluno` (`id_cpf_aluno`),
   KEY `FK_emprestimo_livros` (`id_livro`),
   CONSTRAINT `FK_emprestimo_aluno` FOREIGN KEY (`id_cpf_aluno`) REFERENCES `aluno` (`cpf`) ON DELETE NO ACTION ON UPDATE CASCADE,
   CONSTRAINT `FK_emprestimo_livros` FOREIGN KEY (`id_livro`) REFERENCES `livros` (`id_livro`) ON DELETE NO ACTION ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Copiando dados para a tabela sistema_gerencial_biblioteca.emprestimo: ~13 rows (aproximadamente)
-INSERT INTO `emprestimo` (`id_emprestimo`, `id_cpf_aluno`, `id_livro`, `data_emprestimo`, `data_retorno`, `hora_emprestimo`, `hora_retorno`, `comentarios`) VALUES
-	(13, '111.111.111-11', 27, '2023-11-22', '2023-11-29', '12:57:00', '12:00:00', 'Teste 1');
+-- Copiando dados para a tabela sistema_gerencial_biblioteca.emprestimo: ~3 rows (aproximadamente)
+INSERT INTO `emprestimo` (`id_emprestimo`, `id_cpf_aluno`, `id_livro`, `data_emprestimo`, `data_retorno`, `hora_emprestimo`, `hora_retorno`, `comentarios`, `status_emprestimo`) VALUES
+	(13, '111.111.111-11', 27, '2023-11-22', '2023-11-29', '12:57:00', '12:00:00', 'Teste 1', 'Devolvido'),
+	(14, '111.111.111-11', 28, '2023-11-26', '2023-11-28', '18:47:00', '20:00:00', 'Teste', 'Devolvido'),
+	(15, '111.111.111-11', 31, '2023-11-29', '2023-12-02', '18:50:00', '20:50:00', '', 'Devolvido'),
+	(16, '111.111.111-11', 31, '2023-11-29', '2023-11-28', '19:05:00', '19:05:00', '', 'Devolvido'),
+	(17, '111.111.111-11', 31, '2023-11-27', '2023-11-28', '19:11:00', '22:11:00', '', 'Devolvido'),
+	(18, '111.111.111-11', 31, '2023-11-29', '2023-12-09', '19:12:00', '01:12:00', '', 'Emprestado');
 
 -- Copiando estrutura para tabela sistema_gerencial_biblioteca.imagem
 CREATE TABLE IF NOT EXISTS `imagem` (
@@ -63,11 +69,16 @@ CREATE TABLE IF NOT EXISTS `imagem` (
   PRIMARY KEY (`id`),
   KEY `FK__livros` (`id_livro`),
   CONSTRAINT `FK__livros` FOREIGN KEY (`id_livro`) REFERENCES `livros` (`id_livro`) ON DELETE NO ACTION ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Copiando dados para a tabela sistema_gerencial_biblioteca.imagem: ~11 rows (aproximadamente)
+-- Copiando dados para a tabela sistema_gerencial_biblioteca.imagem: ~3 rows (aproximadamente)
 INSERT INTO `imagem` (`id`, `id_livro`, `imagem`, `data_foto`, `hora_foto`) VALUES
-	(12, 27, '/imagemLivros/resenha-o-apanhador-no-campo-de-centeio-de-j-d-salinger.jpg', '2023-11-22', '12:57');
+	(12, 27, '/imagemLivros/resenha-o-apanhador-no-campo-de-centeio-de-j-d-salinger.jpg', '2023-11-22', '12:57'),
+	(13, 28, '/imagemLivros/71BGWapQw8L._SY466_.jpg', '2023-11-26', '18:47'),
+	(14, 31, '/imagemLivros/71BGWapQw8L._SY466_ - Copia.jpg', '2023-11-29', '18:50'),
+	(15, 31, '/imagemLivros/71BGWapQw8L._SY466_.jpg', '2023-11-29', '19:05'),
+	(16, 31, '/imagemLivros/71BGWapQw8L._SY466_.jpg', '2023-11-27', '19:11'),
+	(17, 31, '/imagemLivros/71BGWapQw8L._SY466_.jpg', '2023-11-29', '19:12');
 
 -- Copiando estrutura para tabela sistema_gerencial_biblioteca.livros
 CREATE TABLE IF NOT EXISTS `livros` (
@@ -81,14 +92,14 @@ CREATE TABLE IF NOT EXISTS `livros` (
   `imagem` varchar(400) NOT NULL DEFAULT '0',
   `comentarios` varchar(400) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_livro`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Copiando dados para a tabela sistema_gerencial_biblioteca.livros: ~4 rows (aproximadamente)
+-- Copiando dados para a tabela sistema_gerencial_biblioteca.livros: ~19 rows (aproximadamente)
 INSERT INTO `livros` (`id_livro`, `titulo`, `status_livro`, `autor`, `paginas`, `categoria`, `estado_livro`, `imagem`, `comentarios`) VALUES
-	(27, 'O Apanhador no Campo de Centeio', 'Indisponível', 'J. D. Salinger', 234, 'Romance', 'Excelente', '/imagemLivros/91HFFmf2PQL._SL1500_.jpg', 'Capa dura.'),
+	(27, 'O Apanhador no Campo de Centeio', 'Disponível', 'J. D. Salinger', 234, 'Romance', 'Excelente', '/imagemLivros/91HFFmf2PQL._SL1500_.jpg', 'Capa dura.'),
 	(28, 'O Senhor dos Anéis: A Sociedade do Anel', 'Disponível', 'J.R.R. Tolkien', 576, 'Fantasia', 'Excelente', '/imagemLivros/81hCVEC0ExL._SL1500_.jpg', 'Nenhuma observação.'),
 	(29, 'Assassinato no Expresso do Oriente', 'Disponível', 'Agatha Christie', 200, 'Romance, Mistério', 'Regular', '/imagemLivros/imagem_2023-10-06_004945841.png', 'Capa dura.'),
-	(31, 'O Pequeno Príncipe', 'Disponível', 'Antoine de Saint-Exupéry', 0, '96', 'Excelente', '/imagemLivros/71BGWapQw8L._SY466_.jpg', '');
+	(31, 'O Pequeno Príncipe', 'Indisponível', 'Antoine de Saint-Exupéry', 0, '96', 'Excelente', '/imagemLivros/71BGWapQw8L._SY466_.jpg', '');
 
 -- Copiando estrutura para tabela sistema_gerencial_biblioteca.usuario
 CREATE TABLE IF NOT EXISTS `usuario` (

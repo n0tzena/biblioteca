@@ -105,7 +105,7 @@
                             echo "<tr>";
                             foreach($row as $columnIndex=>$entry)
                             {                                
-                                if($columnIndex == 7)
+                                if($columnIndex == 7 || $columnIndex == 8)
                                 {
                                     continue;
                                 }

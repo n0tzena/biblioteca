@@ -102,7 +102,7 @@
 
                 move_uploaded_file($_FILES['imagem']['tmp_name'], $saveURL);
 
-                $query = "INSERT INTO emprestimo VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?)";
+                $query = "INSERT INTO emprestimo VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, 'Emprestado')";
                 $stmt = $mysqli->prepare($query);
                 $stmt->bind_param("sisssss", $cpf, $id, $data_emprestimo, $data_devolucao, $hora_emprestimo, $hora_devolucao, $comentarios);
 

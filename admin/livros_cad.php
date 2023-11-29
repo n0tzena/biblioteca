@@ -116,7 +116,7 @@
             {
                 $query = "INSERT INTO livros VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?)";
                 $stmt = $mysqli->prepare($query);
-                $stmt->bind_param("ssssisss", $titulo, $disponibilidade, $autor, $categoria, $paginas, $estado, $imagemURL, $comentarios);
+                $stmt->bind_param("sssissss", $titulo, $disponibilidade, $autor, $paginas, $categoria, $estado, $imagemURL, $comentarios);
                 $stmt->execute();
             }
 

@@ -64,11 +64,11 @@
                 <div class="file-field input-field">
                     <div class="btn">
                         <span>Selecionar imagem</span>
-                        <input type="file" name="imagem">
+                        <input type="file" name="imagem" required>
                     </div>
                     <div class="file-path-wrapper">
                         <label for="file-input">Foto do exemplar</label>
-                        <input class="file-path validate" name="file-input" id="file-input" type="text">
+                        <input class="file-path validate" name="file-input" id="file-input" type="text" required>
                     </div>
                 </div>
             </div>

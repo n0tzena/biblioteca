@@ -107,8 +107,8 @@
                                 {
                                     echo "<td>$entry</td>";
                                 }
-                                //echo "<td><a href='./livros_edit.php?id=$row[0]'>Editar</a></td>";
-                                //echo "<td><a href='./livros_delete.php?id=$row[0]'>Excluir</a></td>";
+                            //  echo "<td><a href='./livros_edit.php?id=$row[0]'>Editar</a></td>";
+                                echo "<td><a href='./aluno_delete.php?cpf=$row[1]'>Excluir</a></td>";
                                 echo "</tr>";
                             }
         

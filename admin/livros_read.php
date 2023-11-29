@@ -40,8 +40,8 @@
                         <td>Título</td>
                         <td>Disponiblidade</td>
                         <td>Autor</td>
-                        <td>Categoria</td>
                         <td>Páginas</td>
+                        <td>Categoria</td>
                         <td>Estado</td>
                     </tr>
                 </thead>

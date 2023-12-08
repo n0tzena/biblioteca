@@ -36,9 +36,8 @@
                 <thead>
                     <tr>
                         <td>Nome</td>
-                        <td>CPF</td>
-                        <td>Telefone</td>
                         <td>Endereço</td>
+                        <td>.</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -105,10 +104,14 @@
                                 echo "<tr>";
                                 foreach($row as $columnIndex=>$entry)
                                 {
+                                    if($columnIndex == 1 || $columnIndex == 2)
+                                    {
+                                        continue;
+                                    }
                                     echo "<td>$entry</td>";
                                 }
                             //  echo "<td><a href='./livros_edit.php?id=$row[0]'>Editar</a></td>";
-                                echo "<td><a href='./aluno_delete.php?cpf=$row[1]'>Excluir</a></td>";
+                                echo "<td><a href='./aluno_delete.php?cpf=$row[1]' onclick='return confirm(\"Deseja deletar o aluno?\")'>Excluir</a></td>";
                                 echo "</tr>";
                             }
         

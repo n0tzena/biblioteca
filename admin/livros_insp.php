@@ -52,13 +52,13 @@
             <div class="row">
                 <a class="waves-effect waves-light btn disabled">Editar Livro</a>
                 <?php if($rows[0][2] == "Disponível") echo "<a class='waves-effect waves-light btn' href='./emprestimo_cad.php?id=$id>'>Empréstimo</a>"?>
-                <?php if($rows[0][2] != "Disponível") echo "<a class='waves-effect waves-light btn' href='./livros_devolver.php?id=$id'>Devolver Livro</a>" ?>
+                <?php if($rows[0][2] != "Disponível") echo "<a class='waves-effect waves-light btn' href='./livros_devolver.php?id=$id' onclick='return confirm(\"Deseja devolver o livro?\")'>Devolver Livro</a>"?>
             </div>
             <div class="row">
                 <?php if(isset($imgrows[0][2])) echo "<a class='waves-effect waves-light btn' href='./livros_ciclo.php?id=$id'>Ciclo de Vida</a>" ?>
             </div>
             <div class="row">
-                <a class="red waves-effect waves-light btn-small" href="./livros_delete.php?id=<?php echo $id ?>">Excluir Livro</a>
+                <a class="red waves-effect waves-light btn-small" href="./livros_delete.php?id=<?php echo $id; ?>" onclick="return confirm('Deseja deletar o livro?')">Excluir Livro</a>
             </div>
         </div>
         <div class="col s8">
@@ -71,7 +71,7 @@
             </div>
             <div class="row">
                 <h5>Gênero</h5>
-                <blockquote><?php echo $rows[0][4] ?></blockquote>
+                <blockquote><?php echo $rows[0][5] ?></blockquote>
             </div>
             <div class="row">
                 <h5>Autor</h5>
@@ -79,7 +79,7 @@
             </div>
             <div class="row">
                 <h5>Número de Páginas</h5>
-                <blockquote><?php echo $rows[0][5] ?></blockquote>
+                <blockquote><?php echo $rows[0][4] ?></blockquote>
             </div>
             <div class="row">
                 <h5>Estado do Livro</h5>

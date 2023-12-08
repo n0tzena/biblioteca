@@ -122,7 +122,7 @@
                             }
                             echo "<td><a href='./livros_insp.php?id=$row[0]'>Inspecionar</a></td>";
                             //echo "<td><a href='./livros_edit.php?id=$row[0]'>Editar</a></td>";
-                            echo "<td><a href='./livros_delete.php?id=$row[0]'>Excluir</a></td>";
+                            echo "<td><a href='./livros_delete.php?id=$row[0]' onclick='return confirm(\"Deseja deletar o livro?\")'>Excluir</a></td>";
                             echo "</tr>";
                         }
         

@@ -43,7 +43,9 @@
                 </select>
                 <div class="row"> 
                     <div class="row">
-                        <button class="btn red lighten-1" type="submit" name="submit">Criar Usuário</button>
+                        <button class="btn pink darken-4" type="submit" name="submit">Criar Usuário
+                            <i class="material-icons right">send</i>
+                        </button>
                     </div>  
             </div>
         </form>

@@ -26,9 +26,9 @@
                     <option value="telefone">Telefone</option>
                 </select>
             </div>
-            
+
             <div class="row">
-                <button class="btn red lighten-1" type="submit" name="submit">Pesquisar</button>
+                <button class="btn pink darken-4" type="submit" name="submit">Pesquisar</button>
             </div>
         </form>
     

@@ -63,7 +63,13 @@
                                     }
                                     if($row[5] == 0)
                                     {
-                                        echo "Nível de acesso insuficiente.";
+                                        echo '<script type="text/javascript"> 
+                                        Swal.fire({
+                                            icon: "error",
+                                            title: "Erro",
+                                            text: "Nivel de acesso insuficiente!"
+                                        })
+                                        </script>';
                                     }
 
                                 }

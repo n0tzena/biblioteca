@@ -38,8 +38,8 @@
                     <tr>
                         <td>ID</td>
                         <td>Nome</td>
-                        <td>CPF</td>
-                        <td>Telefone</td>
+                        <!--td>CPF</td>
+                        <td>Telefone</td-->
                         <td>Endereço</td>
                         <td>Nível de Acesso</td>
                     </tr>
@@ -61,14 +61,14 @@
                                 foreach($row as $columnIndex=>$entry)
                                 {
                                     // se o array for a senha, passa pra proxima iteraçao
-                                    if($columnIndex == 6)
+                                    if($columnIndex == 6 || $columnIndex == 2 || $columnIndex == 3)
                                     {
                                         continue;
                                     }
                                     echo "<td>$entry</td>";
                                 }
                                 echo "<td><a href='./user_edit.php?id=$row[0]'>Editar</a></td>";
-                                echo "<td><a href='./user_delete.php?id=$row[0]'>Excluir</a></td>";
+                                echo "<td><a href='./user_delete.php?id=$row[0]' onclick='return confirm(\"Deseja excluir o usuário?\")'>Excluir</a></td>";
                                 echo "</tr>";
                             }
                         }
@@ -104,7 +104,7 @@
                                 foreach($row as $columnIndex=>$entry)
                                 {
                                     // se o array for a senha, passa pra proxima iteraçao
-                                    if($columnIndex == 6)
+                                    if($columnIndex == 6 || $columnIndex == 2)
                                     {
                                         continue;
                                     }

@@ -95,9 +95,9 @@
                 $imagemURL = "/imagemLivros/".basename($_FILES['imagem']['name']);
                 $saveURL = getcwd()."/imagemLivros/".basename($_FILES['imagem']['name']);
 
-                $query = "INSERT INTO imagem VALUES (DEFAULT, ?, ?, ?, ?)";
+                $query = "INSERT INTO imagem VALUES (DEFAULT, ?, ?, ?, ?, ?)";
                 $stmt = $mysqli->prepare($query);
-                $stmt->bind_param("isss", $id, $imagemURL, $data_emprestimo, $hora_emprestimo);
+                $stmt->bind_param("issss", $id, $imagemURL, $data_emprestimo, $hora_emprestimo, $comentarios);
                 $stmt->execute();
 
                 move_uploaded_file($_FILES['imagem']['tmp_name'], $saveURL);

@@ -21,7 +21,18 @@
             </div>
             <div>
                 <label for="categoria">Categoria do livro</label>
-                <input id="categoria" name="categoria" type="text" autocomplete="off" required>
+
+                <select id="categoria" name="categoria">
+                    <option value="Ação">Ação</option>
+                    <option value="Autobiografia">Autobiografia</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Poesia">Poesia</option>
+                    <option value="Literatura Infantil">Literatura Infantil</option>
+                    <option value="Ficção Científica">Ficção Científica</option>
+                    <option value="História em Quadrinhos (HQ)">História em Quadrinhos (HQ)</option>
+                    <option value="Mangá">Mangá</option>
+                </select>
             </div>
             <div>
                 <label for="paginas">Número de páginas</label>
@@ -132,6 +143,9 @@
 <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
             var sel = document.querySelectorAll('#estado_fisico');
+            M.FormSelect.init(sel)});
+        document.addEventListener('DOMContentLoaded', function() {
+            var sel = document.querySelectorAll('#categoria');
             M.FormSelect.init(sel)});
 </script>
 </body>

@@ -44,6 +44,8 @@ foreach ($imgrows as $row) {
             <blockquote>$row[3]</blockquote>
             <h5>Hora</h5>
             <blockquote>$row[4]</blockquote>
+            <h5>Comentários</h5>
+            <blockquote>$row[5]</blockquote>
         </div>
     </div>
     ";

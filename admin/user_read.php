@@ -38,8 +38,8 @@
                     <tr>
                         <td>ID</td>
                         <td>Nome</td>
-                        <!--td>CPF</td>
-                        <td>Telefone</td-->
+                        <td>CPF</td>
+                        <td>Telefone</td>
                         <td>Endereço</td>
                         <td>Nível de Acesso</td>
                     </tr>
@@ -61,11 +61,21 @@
                                 foreach($row as $columnIndex=>$entry)
                                 {
                                     // se o array for a senha, passa pra proxima iteraçao
-                                    if($columnIndex == 6 || $columnIndex == 2 || $columnIndex == 3)
+                                    if($columnIndex == 6)
                                     {
                                         continue;
                                     }
-                                    echo "<td>$entry</td>";
+                                    if($columnIndex == 2)
+                                    {
+                                        $censorcpf = str_split($row[2]);
+                                        echo "<td>$censorcpf[0]$censorcpf[1]$censorcpf[2].###.###-##";
+                                    }
+                                    else if ($columnIndex == 3)
+                                    {
+                                        $censortel = str_split($row[3]);
+                                        echo "<td>$censortel[0]$censortel[1]$censortel[2]$censortel[3]$censortel[4]$censortel[5]$censortel[6]##-####</td>";
+                                    }
+                                    else echo "<td>$entry</td>";
                                 }
                                 echo "<td><a href='./user_edit.php?id=$row[0]'>Editar</a></td>";
                                 echo "<td><a href='./user_delete.php?id=$row[0]' onclick='return confirm(\"Deseja excluir o usuário?\")'>Excluir</a></td>";
@@ -104,11 +114,21 @@
                                 foreach($row as $columnIndex=>$entry)
                                 {
                                     // se o array for a senha, passa pra proxima iteraçao
-                                    if($columnIndex == 6 || $columnIndex == 2)
+                                    if($columnIndex == 6)
                                     {
                                         continue;
                                     }
-                                    echo "<td>$entry</td>";
+                                    if($columnIndex == 2)
+                                    {
+                                        $censorcpf = str_split($row[2]);
+                                        echo "<td>$censorcpf[0]$censorcpf[1]$censorcpf[2].###.###-##";
+                                    }
+                                    else if ($columnIndex == 3)
+                                    {
+                                        $censortel = str_split($row[3]);
+                                        echo "<td>$censortel[0]$censortel[1]$censortel[2]$censortel[3]$censortel[4]$censortel[5]$censortel[6]##-####</td>";
+                                    }
+                                    else echo "<td>$entry</td>";
                                 }
                                 echo "<td><a href='./user_edit.php?id=$row[0]'>Editar</a></td>";
                                 echo "<td><a href='./user_delete.php?id=$row[0]'>Excluir</a></td>";

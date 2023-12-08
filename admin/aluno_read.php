@@ -36,8 +36,10 @@
                 <thead>
                     <tr>
                         <td>Nome</td>
+                        <td>CPF</td>
+                        <td>Telefone</td>
                         <td>Endereço</td>
-                        <td>.</td>
+                        <td></td>
                     </tr>
                 </thead>
                 <tbody>
@@ -104,11 +106,17 @@
                                 echo "<tr>";
                                 foreach($row as $columnIndex=>$entry)
                                 {
-                                    if($columnIndex == 1 || $columnIndex == 2)
+                                    if($columnIndex == 1)
                                     {
-                                        continue;
+                                        $censorcpf = str_split($row[1]);
+                                        echo "<td>$censorcpf[0]$censorcpf[1]$censorcpf[2].###.###-##";
                                     }
-                                    echo "<td>$entry</td>";
+                                    else if ($columnIndex == 2)
+                                    {
+                                        $censortel = str_split($row[2]);
+                                        echo "<td>$censortel[0]$censortel[1]$censortel[2]$censortel[3]$censortel[4]$censortel[5]$censortel[6]##-####</td>";
+                                    }
+                                    else echo "<td>$entry</td>";
                                 }
                             //  echo "<td><a href='./livros_edit.php?id=$row[0]'>Editar</a></td>";
                                 echo "<td><a href='./aluno_delete.php?cpf=$row[1]' onclick='return confirm(\"Deseja deletar o aluno?\")'>Excluir</a></td>";

@@ -68,12 +68,16 @@
                                     if($columnIndex == 2)
                                     {
                                         $censorcpf = str_split($row[2]);
-                                        echo "<td>$censorcpf[0]$censorcpf[1]$censorcpf[2].###.###-##";
+                                        echo "<td onpointerover='seeInfoCPF(this)' onpointerout='hideInfoCPF(this)' data-cpf-censor='$censorcpf[0]$censorcpf[1]$censorcpf[2].###.###-##' data-cpf='$row[2]'>$censorcpf[0]$censorcpf[1]$censorcpf[2].###.###-##";
                                     }
                                     else if ($columnIndex == 3)
                                     {
                                         $censortel = str_split($row[3]);
-                                        echo "<td>$censortel[0]$censortel[1]$censortel[2]$censortel[3]$censortel[4]$censortel[5]$censortel[6]##-####</td>";
+                                        echo "<td onpointerover='seeInfoTel(this)' onpointerout='hideInfoTel(this)' data-tel-censor='$censortel[0]$censortel[1]$censortel[2]$censortel[3]$censortel[4]$censortel[5]$censortel[6]##-####' data-tel='$row[3]'>$censortel[0]$censortel[1]$censortel[2]$censortel[3]$censortel[4]$censortel[5]$censortel[6]##-####</td>";
+                                    }
+                                    else if ($columnIndex == 4)
+                                    {
+                                        echo "<td onpointerover='seeInfoEnd(this)' onpointerout='hideInfoEnd(this)' data-end-censor='Rua' data-end='$row[4]'>Rua</td>";
                                     }
                                     else echo "<td>$entry</td>";
                                 }
@@ -121,12 +125,17 @@
                                     if($columnIndex == 2)
                                     {
                                         $censorcpf = str_split($row[2]);
-                                        echo "<td>$censorcpf[0]$censorcpf[1]$censorcpf[2].###.###-##";
+                                        echo "<td onpointerover='seeInfoCPF(this)' onpointerout='hideInfoCPF(this)' data-cpf-censor='$censorcpf[0]$censorcpf[1]$censorcpf[2].###.###-##' data-cpf='$row[2]'>$censorcpf[0]$censorcpf[1]$censorcpf[2].###.###-##";
                                     }
                                     else if ($columnIndex == 3)
                                     {
                                         $censortel = str_split($row[3]);
-                                        echo "<td>$censortel[0]$censortel[1]$censortel[2]$censortel[3]$censortel[4]$censortel[5]$censortel[6]##-####</td>";
+                                        echo "<td onpointerover='seeInfoTel(this)' onpointerout='hideInfoTel(this)' data-tel-censor='$censortel[0]$censortel[1]$censortel[2]$censortel[3]$censortel[4]$censortel[5]$censortel[6]##-####' data-tel='$row[3]'>$censortel[0]$censortel[1]$censortel[2]$censortel[3]$censortel[4]$censortel[5]$censortel[6]##-####</td>";
+                                    }
+                                    else if ($columnIndex == 3)
+                                    {
+                                        $censortel = str_split($row[2]);
+                                        echo "<td onpointerover='seeInfoEnd(this)' onpointerout='hideInfoEnd(this)' data-end-censor='Rua' data-end='$row[3]'>Rua</td>";
                                     }
                                     else echo "<td>$entry</td>";
                                 }
@@ -146,6 +155,32 @@
         document.addEventListener('DOMContentLoaded', function() {
             var sel = document.querySelectorAll('select');
             M.FormSelect.init(sel)});
+
+        var Teste;
+        function seeInfoCPF(obj)
+        {
+            obj.innerHTML = obj.dataset.cpf;
+        }
+        function hideInfoCPF(obj)
+        {
+            obj.innerHTML = obj.dataset.cpfCensor;
+        }
+        function seeInfoTel(obj)
+        {
+            obj.innerHTML = obj.dataset.tel;
+        }
+        function hideInfoTel(obj)
+        {
+            obj.innerHTML = obj.dataset.telCensor;
+        }
+        function seeInfoEnd(obj)
+        {
+            obj.innerHTML = obj.dataset.end;
+        }
+        function hideInfoEnd(obj)
+        {
+            obj.innerHTML = obj.dataset.endCensor;
+        }
     </script>
 </body>
 </html>

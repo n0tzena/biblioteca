@@ -20,7 +20,8 @@
             </div>
             <div>
                 <label for="senha">Senha</label>
-                <input id="senha" name="senha" type="password" autocomplete="off" required>
+                <input id="senha" name="senha" type="password" autocomplete="off" required onchange="checkPasswordStrength(this.value)">
+                <div id="passwordStrength"></div>
             </div>
             <div>
                 <label for="cpf">CPF</label>
@@ -82,6 +83,59 @@
         document.addEventListener('DOMContentLoaded', function() {
             var sel = document.querySelectorAll('#nivelAcesso');
             M.FormSelect.init(sel)});
+        
+            function checkPasswordStrength(password) {
+                // Initialize variables
+                var strength = 0;
+                var tips = "";
+
+                // Check password length
+                if (password.length < 8) {
+                    tips += "Coloque mais caracteres. ";
+                } else {
+                    strength += 1;
+                }
+
+                // Check for mixed case
+                if (password.match(/[a-z]/) && password.match(/[A-Z]/)) {
+                    strength += 1;
+                } else {
+                    tips += "Use letras maiúsculas e minúsculas. ";
+                }
+
+                // Check for numbers
+                if (password.match(/\d/)) {
+                    strength += 1;
+                } else {
+                    tips += "Inclua pelo menos um número. ";
+                }
+
+                // Check for special characters
+                if (password.match(/[^a-zA-Z\d]/)) {
+                    strength += 1;
+                } else {
+                    tips += "Inclua pelo menos um caractere especial (Ex.: @, #, !, ?). ";
+                }
+
+                // Return results
+                // Get the paragraph element
+                var strengthElement = document.getElementById("passwordStrength");
+
+                // Return results
+                if (strength < 2) {
+                strengthElement.textContent = "Senha fraca. " + tips;
+                strengthElement.style.color = "red";
+                } else if (strength === 2) {
+                strengthElement.textContent = "Senha média. " + tips;
+                strengthElement.style.color = "orange";
+                } else if (strength === 3) {
+                strengthElement.textContent = "Senha forte. " + tips;
+                strengthElement.style.color = "limegreen";
+                } else {
+                strengthElement.textContent = "Senha extremamente forte. " + tips;
+                strengthElement.style.color = "green";
+                }
+            }
     </script>
     <script type="text/javascript" src="../login/cpf-mask.js"></script>
 </body>

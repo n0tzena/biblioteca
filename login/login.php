@@ -43,7 +43,7 @@
                                         if($row[5] == 1)
                                         {
                                             echo "Redirecionando para a página de administração...";
-                                            header("Location: ../admin/user.php");         
+                                            header("Location: ../admin/user_read.php");         
                                             
                                             session_start();
                                             $_SESSION["id"] = $row[0];

@@ -25,6 +25,7 @@
                 <select id="categoria" name="categoria">
                     <option value="Ação">Ação</option>
                     <option value="Autobiografia">Autobiografia</option>
+                    <option value="Programacao">Programação</option>
                     <option value="Drama">Drama</option>
                     <option value="Romance">Romance</option>
                     <option value="Poesia">Poesia</option>

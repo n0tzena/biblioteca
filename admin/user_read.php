@@ -181,31 +181,5 @@
             obj.innerHTML = obj.dataset.endCensor;
         }
     </script>
-    <style id="darkMode">
-        body
-        {
-            color: white;
-            background-color: #151515;
-        }
-        input
-        {
-            color: white;
-        }
-        .description::-webkit-scrollbar
-        {
-            width: 5px;
-            background-color: rgb(24, 24, 24);
-            border-radius: 5px;
-        }
-        .description::-webkit-scrollbar-thumb
-        {
-            background: #707070;
-            border-radius: 5px;
-        }
-        .material-icons
-        {
-            color: white;
-        }
-    </style>
 </body>
 </html>

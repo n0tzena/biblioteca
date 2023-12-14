@@ -7,7 +7,7 @@
     <script src="../sweetalert2/package/dist/sweetalert2.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criar usuário</title>
+    <title>libMyAdmin - Criar usuário</title>
 </head>
 <body>
     <?php include 'navbar.php' ?> 

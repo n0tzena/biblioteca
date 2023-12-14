@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../materialize/css/materialize.min.css"  media="screen,projection"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/lib (1).png" type="image/gif">
     <title>libMyAdmin - Cadastro de livros</title>
 </head>
 <body>
@@ -80,7 +81,7 @@
                 <div class="file-field input-field">
                     <div class="btn">
                         <span>Selecionar imagem</span>
-                        <input type="file" name="imagem" required>
+                        <input type="file" style="background-color: #512DA8;" name="imagem" required>
                     </div>
                     <div class="file-path-wrapper">
                         <label for="file-input">Capa do livro</label>
@@ -89,7 +90,7 @@
                 </div>
             </div> 
             <div class="row">
-                    <button class="btn pink darken-4" type="submit" name="submit">Enviar
+                    <button class="btn" style="background-color: #512DA8;" type="submit" name="submit">Enviar
                         <i class="material-icons right">send</i>
                     </button>
             </div> 

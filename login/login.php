@@ -7,6 +7,7 @@
     <script src="../sweetalert2/package/dist/sweetalert2.min.js"></script>
     <link type="text/css" rel="stylesheet" href="style.css" />
     <meta charset="UTF-8">
+    <link rel="icon" href="../images/lib (1).png" type="image/gif">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>libMyAdmin - Entre com suas credências!</title>
 </head>
@@ -14,6 +15,7 @@
     <div class="container">
         <form method="post">
             <div class="input field">
+                <img src="../images/lib-re.png" class="logo" alt="logo">
                 <h2>Bem-Vindo ao <br>libMyAdmin</h2>
             </div>
             <div class="input field">

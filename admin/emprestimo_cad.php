@@ -73,9 +73,7 @@
                 </div>
             </div>
             <div class="row">
-                <button class="btn red lighten-1" type="submit" name="submit">Enviar
-                    <i class="material-icons right">send</i>
-                </button>
+                <button class="btn" style="background-color: #512DA8;" type="submit" name="submit">Enviar</button>
             </div> 
         </form>
         <?php

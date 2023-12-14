@@ -5,12 +5,13 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../materialize/css/materialize.min.css"  media="screen,projection"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/lib (1).png" type="image/gif">
     <title>libMyAdmin - Relatório de Usuários</title>
 </head>
 <body>
     <?php include 'navbar.php' ?> 
     <div class="container">
-        <h1>Relatório de Usuários</h1>
+        <h1>Relatório de usuários</h1>
         <form method="post">
             <label for="search">Pesquisar por:</label>
             <input type="text" id="search" name="pesquisa" autocomplete="off">
@@ -27,7 +28,7 @@
             </div>
 
             <div class="row">
-                <button class="btn pink darken-4" type="submit" name="submit">Pesquisar</button>
+                <button class="btn" style="background-color: #512DA8;" type="submit" name="submit">Pesquisar</button>
             </div>
         </form>
     

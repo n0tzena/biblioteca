@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../materialize/css/materialize.min.css"  media="screen,projection"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de livros</title>
+    <title>libMyAdmin - Cadastro de livros</title>
 </head>
 <body>
     <?php include 'navbar.php' ?>
@@ -25,6 +25,7 @@
                 <select id="categoria" name="categoria">
                     <option value="Ação">Ação</option>
                     <option value="Autobiografia">Autobiografia</option>
+                    <option value="Programacao">Programação</option>
                     <option value="Drama">Drama</option>
                     <option value="Romance">Romance</option>
                     <option value="Poesia">Poesia</option>

@@ -109,12 +109,12 @@
                                     if($columnIndex == 1)
                                     {
                                         $censorcpf = str_split($row[1]);
-                                        echo "<td onpointerover='seeInfoCPF(this)' onpointerout='hideInfoCPF(this)' data-cpf-censor='$censorcpf[0]$censorcpf[1]$censorcpf[2].###.###-##' data-cpf='$row[1]'>$censorcpf[0]$censorcpf[1]$censorcpf[2].###.###-##";
+                                        echo "<td onpointerover='seeInfoCPF(this)' onpointerout='hideInfoCPF(this)' data-cpf-censor='$censorcpf[0]$censorcpf[1]$censorcpf[2].***.***-**' data-cpf='$row[1]'>$censorcpf[0]$censorcpf[1]$censorcpf[2].***.***-**";
                                     }
                                     else if ($columnIndex == 2)
                                     {
                                         $censortel = str_split($row[2]);
-                                        echo "<td onpointerover='seeInfoTel(this)' onpointerout='hideInfoTel(this)' data-tel-censor='$censortel[0]$censortel[1]$censortel[2]$censortel[3]$censortel[4]$censortel[5]$censortel[6]##-####' data-tel='$row[2]'>$censortel[0]$censortel[1]$censortel[2]$censortel[3]$censortel[4]$censortel[5]$censortel[6]##-####</td>";
+                                        echo "<td onpointerover='seeInfoTel(this)' onpointerout='hideInfoTel(this)' data-tel-censor='$censortel[0]$censortel[1]$censortel[2]$censortel[3]$censortel[4]$censortel[5]$censortel[6]**-****' data-tel='$row[2]'>$censortel[0]$censortel[1]$censortel[2]$censortel[3]$censortel[4]$censortel[5]$censortel[6]**-****</td>";
                                     }
                                     else if ($columnIndex == 3)
                                     {

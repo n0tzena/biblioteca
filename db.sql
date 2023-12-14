@@ -28,9 +28,10 @@ CREATE TABLE IF NOT EXISTS `aluno` (
   PRIMARY KEY (`cpf`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Copiando dados para a tabela sistema_gerencial_biblioteca.aluno: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela sistema_gerencial_biblioteca.aluno: ~2 rows (aproximadamente)
 INSERT INTO `aluno` (`nome`, `cpf`, `telefone`, `endereço`) VALUES
-	('Teste', '111.111.111-11', '(11)11111-1111', 'Teste');
+	('Teste', '111.111.111-11', '(11)11111-1111', 'Teste'),
+	('Yan Pablo', '364.237.432-76', '(21)96548-3589', 'Rua Yan Freitas, 29');
 
 -- Copiando estrutura para tabela sistema_gerencial_biblioteca.emprestimo
 CREATE TABLE IF NOT EXISTS `emprestimo` (
@@ -46,9 +47,9 @@ CREATE TABLE IF NOT EXISTS `emprestimo` (
   PRIMARY KEY (`id_emprestimo`),
   KEY `FK_emprestimo_aluno` (`id_cpf_aluno`),
   KEY `FK_emprestimo_livros` (`id_livro`),
-  CONSTRAINT `FK_emprestimo_aluno` FOREIGN KEY (`id_cpf_aluno`) REFERENCES `aluno` (`cpf`) ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT `FK_emprestimo_livros` FOREIGN KEY (`id_livro`) REFERENCES `livros` (`id_livro`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  CONSTRAINT `FK_emprestimo_aluno` FOREIGN KEY (`id_cpf_aluno`) REFERENCES `aluno` (`cpf`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `FK_emprestimo_livros` FOREIGN KEY (`id_livro`) REFERENCES `livros` (`id_livro`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Copiando dados para a tabela sistema_gerencial_biblioteca.emprestimo: ~6 rows (aproximadamente)
 INSERT INTO `emprestimo` (`id_emprestimo`, `id_cpf_aluno`, `id_livro`, `data_emprestimo`, `data_retorno`, `hora_emprestimo`, `hora_retorno`, `comentarios`, `status_emprestimo`) VALUES
@@ -71,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `imagem` (
   PRIMARY KEY (`id`),
   KEY `FK__livros` (`id_livro`),
   CONSTRAINT `FK__livros` FOREIGN KEY (`id_livro`) REFERENCES `livros` (`id_livro`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Copiando dados para a tabela sistema_gerencial_biblioteca.imagem: ~2 rows (aproximadamente)
 INSERT INTO `imagem` (`id`, `id_livro`, `imagem`, `data_foto`, `hora_foto`, `comentarios`) VALUES
@@ -97,8 +98,7 @@ CREATE TABLE IF NOT EXISTS `livros` (
 INSERT INTO `livros` (`id_livro`, `titulo`, `status_livro`, `autor`, `paginas`, `categoria`, `estado_livro`, `imagem`, `comentarios`) VALUES
 	(27, 'O Apanhador no Campo de Centeio', 'Disponível', 'J. D. Salinger', 234, 'Romance', 'Excelente', '/imagemLivros/91HFFmf2PQL._SL1500_.jpg', 'Capa dura.'),
 	(28, 'O Senhor dos Anéis: A Sociedade do Anel', 'Disponível', 'J.R.R. Tolkien', 576, 'Fantasia', 'Excelente', '/imagemLivros/81hCVEC0ExL._SL1500_.jpg', 'Nenhuma observação.'),
-	(29, 'Assassinato no Expresso do Oriente', 'Indisponível', 'Agatha Christie', 200, 'Romance, Mistério', 'Regular', '/imagemLivros/imagem_2023-10-06_004945841.png', 'Capa dura.'),
-	(50, 'Teste', 'Disponível', 'Victor', 25, 'Literatura Infantil', 'Excelente', '/imagemLivros/8z5obbief9d71.png', 'Teste 2');
+	(29, 'Assassinato no Expresso do Oriente', 'Indisponível', 'Agatha Christie', 200, 'Romance, Mistério', 'Regular', '/imagemLivros/imagem_2023-10-06_004945841.png', 'Capa dura.');
 
 -- Copiando estrutura para tabela sistema_gerencial_biblioteca.usuario
 CREATE TABLE IF NOT EXISTS `usuario` (

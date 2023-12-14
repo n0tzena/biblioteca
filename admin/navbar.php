@@ -37,7 +37,7 @@ echo "
     </ul>
 
     <a href='#' data-target='slide-out' class='sidenav-trigger'>
-        <i class='material-icons' style='font-size: 2.1rem; color: black; padding: 10px;'>menu</i>
+        <i class='material-icons' style='font-size: 2.1rem; padding: 10px;'>menu</i>
     </a>
 ";
 

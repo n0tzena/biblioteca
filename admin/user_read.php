@@ -5,7 +5,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../materialize/css/materialize.min.css"  media="screen,projection"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Relatório de usuários</title>
 </head>
 <body>
@@ -182,5 +181,31 @@
             obj.innerHTML = obj.dataset.endCensor;
         }
     </script>
+    <style id="darkMode">
+        body
+        {
+            color: white;
+            background-color: #151515;
+        }
+        input
+        {
+            color: white;
+        }
+        .description::-webkit-scrollbar
+        {
+            width: 5px;
+            background-color: rgb(24, 24, 24);
+            border-radius: 5px;
+        }
+        .description::-webkit-scrollbar-thumb
+        {
+            background: #707070;
+            border-radius: 5px;
+        }
+        .material-icons
+        {
+            color: white;
+        }
+    </style>
 </body>
 </html>

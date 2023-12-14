@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../sweetalert2/package/dist/sweetalert2.min.css">
+    <script src="../sweetalert2/package/dist/sweetalert2.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Usuário</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -63,7 +65,13 @@
                 else $nivelAcesso = 1;
 
                 if(User::UpdateUser($mysqli, $id, $nome, $cpf, $tel, $end, $nivelAcesso))
-                echo "Usuário editado com sucesso!";
+                echo "<script type='text/javascript'>
+                Swal.fire(
+                    'Exito',
+                    'Usuário editado com sucesso!',
+                    'success'
+                );
+                </script>";
             }
 
         ?>
@@ -72,7 +80,7 @@
     <script type="text/javascript" src="../materialize/js/materialize.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var sel = document.querySelectorAll('select');
+            var sel = document.querySelectorAll('#nivelAcesso');
             M.FormSelect.init(sel)});
     </script>
 </body>

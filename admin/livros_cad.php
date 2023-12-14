@@ -34,6 +34,7 @@
                     <option value="Ficção Científica">Ficção Científica</option>
                     <option value="História em Quadrinhos (HQ)">História em Quadrinhos (HQ)</option>
                     <option value="Mangá">Mangá</option>
+                    <option value="Outro">Outro</option>
                 </select>
             </div>
             <div>
@@ -46,7 +47,7 @@
             </div>
             <div>
                 <label for="textarea1">Comentários</label>
-                <textarea id="textarea1" name="comentarios" class="materialize-textarea" placeholder="Limite de 400 caracteres." maxlength="400"></textarea>
+                <textarea id="textarea1" name="comentarios" class="materialize-textarea" placeholder="Possíveis observações acerca do livro" maxlength="400"></textarea>
             </div>
             <div class="row">
                 <label for="estado_fisico">Estado físico do livro</label>
@@ -90,9 +91,7 @@
                 </div>
             </div> 
             <div class="row">
-                    <button class="btn" style="background-color: #512DA8;" type="submit" name="submit">Enviar
-                        <i class="material-icons right">send</i>
-                    </button>
+                    <button class="btn" style="background-color: #512DA8;" type="submit" name="submit">Cadastrar livro</button>
             </div> 
         </form>
     <?php

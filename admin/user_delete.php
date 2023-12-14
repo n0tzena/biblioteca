@@ -5,6 +5,6 @@ include 'classes.php';
 
 $id = $_GET['id'];
 User::DeleteUser($mysqli, $id);
-header("Location: user.php");
+header("Location: user_read.php");
 
 ?>

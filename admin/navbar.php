@@ -4,6 +4,12 @@ session_start();
 $nome = $_SESSION['nome'];
 
 echo "
+    <style>
+        .material-icons
+        {
+            color: black;
+        }
+    </style>
     <style id=\"darkMode\">
     body
     {
@@ -66,10 +72,10 @@ echo "
     <li>
         <div style=\"margin-left: 20px;\" class=\"switch\">
             <label>
-            Off
+            Desligado
             <input id=\"nightModeCheck\" type=\"checkbox\" onclick=\"alternateDarkMode()\">
             <span class=\"lever\"></span>
-            On
+            Ligado
             </label>
         </div>
     </li>

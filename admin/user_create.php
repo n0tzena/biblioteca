@@ -5,6 +5,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../materialize/css/materialize.min.css"  media="screen,projection"/>
     <script src="../sweetalert2/package/dist/sweetalert2.min.js"></script>
+    <link rel="icon" href="../images/lib (1).png" type="image/gif">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>libMyAdmin - Criar usuário</title>
@@ -44,9 +45,7 @@
                 </select>
                 <div class="row"> 
                     <div class="row">
-                        <button class="btn pink darken-4" type="submit" name="submit">Criar Usuário
-                            <i class="material-icons right">send</i>
-                        </button>
+                        <button class="btn" style="background-color: #512DA8;" type="submit" name="submit">Criar Usuário</button>
                     </div>  
             </div>
         </form>

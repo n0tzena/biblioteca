@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../materialize/css/materialize.min.css"  media="screen,projection"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/lib (1).png" type="image/gif">
     <title>libMyAdmin - Cadastro de Alunos</title>
 </head>
 <body>
@@ -32,9 +33,7 @@
                 <input id="end" name="end" type="text" autocomplete="off" required>
             </div>  
             <div class="row">
-                <button class="btn pink darken-4" type="submit" name="submit">Enviar
-                    <i class="material-icons right">send</i>
-                </button>
+                <button class="btn" style="background-color: #512DA8;" type="submit" name="submit">Criar Aluno</button>
             </div> 
         
         </form>

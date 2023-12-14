@@ -35,7 +35,7 @@ $imgrows = $result->fetch_all(MYSQLI_NUM);
 foreach ($imgrows as $row) {
     echo 
     "
-    <div class='row grey lighten-3 hoverable'>
+    <div class='row grey lighten-3 ciclovida hoverable'>
         <div class='col s4 valign-wrapper'>
             <img class='responsive-img' src='.$row[2]'>
         </div>

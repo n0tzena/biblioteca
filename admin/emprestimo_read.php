@@ -66,14 +66,14 @@
         
                             switch ($consulta)
                             {
-                                case "id":
+                                case "id_livro":
                                     $search = "id_livro";
                                     break;
-                                case "titulo":
+                                case "cpf":
                                     $search = "id_cpf_aluno";
                                     break;
                                 default:
-                                    $search = "titulo";
+                                    $search = "id_livro";
                             }
                             
         
